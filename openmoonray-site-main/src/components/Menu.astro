@@ -1,0 +1,94 @@
+<head>
+  <script type="module">
+    // Define the menu items
+    const menuItems = [
+      { name: 'Home', link: '/' },
+      { name: 'About', link: '/about' },
+      { name: 'FAQ', link: '/faq' },
+      { name: 'Documentation', link: '/documentation' },
+      { name: 'License', link: '/license' },
+      { name: 'Download', link: '/download' },
+    ];
+
+    // Get the current URL path
+    const currentPath = window.location.pathname;
+
+    // Function to determine the class for each menu item
+    function getMenuClass(link) {
+      return currentPath === link
+        ? 'block px-4 py-2 rounded-lg bg-dreamworks-blue text-white'  // Active menu item
+        : 'block px-4 py-2 rounded-lg hover:bg-gray-100 hover:text-blue-500';  // Inactive menu item
+    }
+
+    // Wait for DOM content to load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get the sidebar menu
+      const sidebar = document.getElementById('sidebar');
+
+      // Loop through the menuItems array and create list items dynamically
+      const menuList = menuItems.map(item => {
+        return `
+          <li>
+            <a href="${item.link}" class="${getMenuClass(item.link)}">
+              ${item.name}
+            </a>
+          </li>
+        `;
+      }).join('');
+
+      // Insert the menu items into the sidebar
+      sidebar.innerHTML = `
+        <ul class="space-y-4">
+          <li>
+            <img src="https://openmoonray.org/images/nav.png" alt="Icon" class="mb-6" />
+          </li>
+          ${menuList}
+        </ul>
+      `;
+
+    const tham = document.querySelector(".tham");
+    const mobileMenu = document.getElementById("mobilemenu")
+    tham.addEventListener('click', () => {
+    tham.classList.toggle('tham-active');
+    mobileMenu.classList.toggle('hidden');
+});
+
+    });
+  </script>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- Mobile Header -->
+  <div
+    id="toggle-button"
+    class="md:hidden bg-white px-4 py-2 fixed top-0 w-full z-50 flex items-center justify-between"
+  >
+    <img
+      src="https://txxb.github.io/static-site/images/moonray_logo.png"
+      alt="Icon"
+      class="h-8"
+    />
+
+    <div class="tham tham-e-squeeze tham-w-6">
+      <div class="tham-box">
+        <div class="tham-inner"></div>
+      </div>
+    </div>
+
+    <div id="mobilemenu" class="hidden absolute top-full w-full bg-white shadow-md">
+      <a href="/" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+      <a href="/about" class="block px-4 py-2 hover:bg-gray-100">About</a>
+      <a href="/faq" class="block px-4 py-2 hover:bg-gray-100">FAQ</a>
+      <a href="/documentation" class="block px-4 py-2 hover:bg-gray-100">Documentation</a>
+      <a href="/license" class="block px-4 py-2 hover:bg-gray-100">License</a>
+      <a href="/download" class="block px-4 py-2 hover:bg-gray-100">Download</a>
+    </div>
+  </div>
+
+  <div class="flex min-h-screen pt-14 md:pt-0">
+    <aside id="sidebar" class="w-full min-h-screen flex flex-col"></aside> <!-- menu injected here -->
+
+    <main class="flex-1 px-6 md:px-12">
+      <slot />
+    </main>
+  </div>

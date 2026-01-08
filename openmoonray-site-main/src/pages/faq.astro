@@ -1,0 +1,97 @@
+---
+import Layout from '../components//Layout.astro';
+import * as Image from '../scripts/ImagePath'
+
+---
+<head>
+  <title>Frequently Asked Questions - MoonRay</title>
+</head>
+
+<Layout>
+  <img src={Image.faq_cover} class="w-full" />
+  <div class="p-10 m-5">
+
+  <h1 class="text-3xl font-bold pb-5">Frequently Asked Questions</h1>
+
+  <div class="pb-3">
+    <p class="font-bold">Will MoonRay be integrated into... [third-party application]?</p>
+    <p>The team at DreamWorks has developed and supports a Hydra delegate, hdMoonRay, intended as the canonical means for interactive rendering in DCC integrations. This is included in the open-source release. We also provide a stand-alone GUI application for interactive rendering outside of DCCs.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">What about batch rendering?</p>
+    <p>MoonRay can be run from the command-line using the RDL scene description language for farm applications. A future version of our Hydra Render Delegate is intended to support batch rendering of USD scenes in addition to the current interactive rendering.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">Do I need to use MoonRay&apos;s GPU hardware acceleration?</p>
+    <p>No. MoonRay performs well without GPU hardware acceleration.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">Do the images created with GPU hardware acceleration differ from those created without?</p>
+    <p>No. The team has strived to ensure that images are identical with and without hardware acceleration.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">Which hardware does MoonRay&apos;s GPU hardware acceleration support?</p>
+    <p>GPU hardware acceleration is implemented through OptiX/CUDA, meaning the hardware acceleration currently requires Nvidia GPUs.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">Is OSL or MaterialX supported?</p>
+    <p>Not currently. MoonRay will be released with a set of layerable materials such as dielectrics, skin, fabric, hair, etc. New or custom Material/Displacement/Map shaders can be developed via the Shading API.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">What hair geometry generators are integrated?</p>
+    <p>MoonRay does not include direct support for commercially available hair geometry tools. DreamWorks uses internal tools with associated geometry procedurals. MoonRay can render curves directly via a provided RDLCurvesGeometry procedural that accepts a list of curves/vertices. We also support USD curves via the MoonRay Hydra delegate and through a provided USDGeometry procedural. The procedural Geometry API can be used or extended to support additional curve formats and allows developers to write custom geometry generators for integrating any studio or commercial hair tools.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">What Operating System versions and variants are currently available?</p>
+    <p>The DreamWorks build environment consists of the following: </p>
+    <ul class="list-disc list-inside">
+      <li>CentOS 7.9.2009</li>
+      <li>Linux kernel 3.10</li>
+      <li>ICC 19 [VFX RefPlat 2020]</li>
+      <li>GCC 6.3 [VFX RefPlat 2020]</li>
+      <li>GCC 9.3 [VFX RefPlat 2021]</li>
+      <li>Clang 13 [VFX RefPlat 2021]</li>
+    </ul>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">What scene description format does MoonRay use?</p>
+    <p>MoonRay has a custom scene description language called RDL (Render Data Layer) that is built upon the Lua programming language, which has binary and ASCII variants. The Hydra delegate uses USD as the scene description and translates to RDL.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">Is MoonRay free to use?</p>
+    <p>In line with the <a href="https://openmoonray.org/license" class="text-blue-600">Apache version 2 license</a>, MoonRay is free to use and modify for both independent and commercial use.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">Is MoonRay in active development at DreamWorks?</p>
+    <p>Yes! MoonRay is the renderer used for all DreamWorks Animation feature movies. It has a full-time development staff focused on those productions and contributions from the open-source community.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">Can I contribute to the development of MoonRay?</p>
+    <p>We are happy to welcome community improvements to the MoonRay codebase! The MoonRay GitHub repository will provide guidance on contributions and how to become a contributor.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">What are the minimum hardware requirements for MoonRay?</p>
+    <p>MoonRay targets x86-64 hardware with AVX2. AVX1 runs but is not supported and will not be as efficient.</p>
+  </div>
+
+  <div class="pb-3">
+    <p class="font-bold">What are the minimum software requirements?</p>
+    <p>MoonRay currently runs on Linux and is compiled with C++17 and Intel&apos;s <a href="https://ispc.github.io/" class="text-blue-600">ISPC</a>.  MoonRay is continually built inside DreamWorks Animation with GCC, Intel&apos;s ICC and Clang.
+    
+    </p>
+  </div>
+  </div>
+</Layout>
+

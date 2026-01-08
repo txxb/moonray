@@ -1,0 +1,129 @@
+---
+import '/src/styles/global.css';
+
+---
+
+<nav class="bg-gray-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-center">
+      <ul class="flex space-x-10">
+        <li>
+          <a href="#home" class="menu-item relative font-bold text-gray-700 hover:text-black transition-colors duration-200">
+            Home
+            <span class="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="menu-item relative font-bold text-gray-700 hover:text-black transition-colors duration-200">
+            About
+            <span class="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#faq" class="menu-item relative font-bold text-gray-700 hover:text-black transition-colors duration-200">
+            FAQ
+            <span class="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#docs" class="menu-item relative font-bold text-gray-700 hover:text-black transition-colors duration-200">
+            Documentation
+            <span class="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#license" class="menu-item relative font-bold text-gray-700 hover:text-black transition-colors duration-200">
+            License
+            <span class="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#download" class="menu-item relative font-bold text-gray-700 hover:text-black transition-colors duration-200">
+            Download
+            <span class="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-300"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault(); // for demo, prevent scrolling
+      menuItems.forEach(i => {
+        i.classList.remove('text-black');
+        i.querySelector('span').style.width = '0';
+      });
+      item.classList.add('text-black');
+      item.querySelector('span').style.width = '100%';
+    });
+  });
+</script>
+
+
+<div class="max-w-full mx-auto -mt-8 overflow-hidden">
+  <img 
+    src="src/images/home_cover.png" 
+    alt="Icon" 
+    class="w-full h-96 object-cover rounded-lg shadow-md"
+  >
+</div>
+
+
+<div class="text-center py-12">
+  <!-- Large Welcome Text -->
+  <h1 class="text-6xl font-bold text-gray-900">
+    Welcome
+  </h1>
+
+  <!-- Underlined Div that spans the entire page -->
+  <div class="mt-4 w-full border-t-4 border-gray-900 mx-auto"></div>
+</div>
+
+<!-- Add space between image and paragraph -->
+<p class="mt-8 text-lg text-gray-700 leading-relaxed">
+  MoonRay is DreamWorks’ open-source, multi-award-winning, state-of-the-art production MCRT renderer, which has been used on feature films such as How to Train Your Dragon: The Hidden World, The Bad Guys, Puss In Boots: The Last Wish, the newest release, Kung Fu Panda 4, as well as future titles. MoonRay was developed at DreamWorks and is in continuous active development and includes an extensive library of production-tested, physically based materials, a USD Hydra render delegate, multi-machine and cloud rendering via the Arras distributed computation framework.
+</p>
+
+<!-- Glide.js carousel container -->
+<div class="glide mt-6">
+  <!-- Track: Holds the slides -->
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      <!-- Slide 1 - YouTube Video -->
+      <li class="glide__slide">
+        <div class="relative flex justify-center items-center">
+          <!-- Making the video taller and wider -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/86DW_M38rcE?si=TiEJwQv5SLbVmL2X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+      </li>
+
+      <!-- More slides here if needed... -->
+    </ul>
+  </div>
+
+  <!-- Add navigation arrows (optional) -->
+  <div class="glide__arrows" data-glide-el="controls">
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+  </div>
+</div>
+
+<!-- Glide.js initialization -->
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+  // Initialize the Glide.js carousel
+  new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 1,
+    autoplay: 5000,
+    gap: 20,
+    focusAt: 'center',
+    animationDuration: 800,
+    animationTimingFunc: 'ease',
+  }).mount();
+</script>

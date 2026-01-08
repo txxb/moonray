@@ -1,0 +1,313 @@
+---
+import Layout from '../components//Layout.astro';
+import FullscreenImage from '../components/FullscreenImage.astro';
+import * as Image from '../scripts/ImagePath'
+---
+<head>
+  <title>Features and Functionality - MoonRay Production Renderer</title>
+</head>
+<Layout>
+  <img src={Image.about_cover} class="w-full" />
+  <div class="p-10 m-5">
+    <h1 class="text-3xl font-bold pb-5">About MoonRay</h1>
+
+    <p>DreamWorks&apos; in-house Monte Carlo Path Tracer, MoonRay, was designed from the start with a focus on efficiency and scalability, with the mantra to &quot;...keep all the vector lanes of all the cores of all the machines busy all the time with meaningful work&quot;, as well as provide modern features for full artistic expression. It can deliver a broad range of images from photorealistic to strongly stylized. MoonRay is built on a leading-edge, highly-scalable architecture with no prior legacy code, allowing quick, feature-film quality artistic iteration using familiar tools. Additional high-performance features include support for distributed rendering, a pixel matching XPU mode that offers improved performance by processing bundles of rays on the GPU as well as the CPU, and bundled path tracing. MoonRay includes a Hydra Render Delegate for integration into content creation tools that support the standard.</p>
+    <FullscreenImage 
+      src={Image.about_pathtracing}
+      alt="Vectorized MoonRay Diagram"
+      caption="Vectorized MoonRay"
+      width="w-74"
+    />
+      <h1 class="text-2xl pb-3">Features</h1>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Distributed Rendering</h1>
+      <p>
+          Arras is our cloud-based framework that we use for distributing rendering tasks to a cluster or cloud. Client programs make use of an extremely thin and portable Arras SDK to connect to an Arras rendering session, which is a cluster of one or more computation nodes. In the cluster there is a single MoonRay merge node which is responsible for sending final rendering results back to the client. In addition to enabling distributed rendering, this architecture makes it extremely simple to integrate MoonRay in a wide variety of client applications. Much easier than if the entire core rendering libraries needed integration with a client application.
+      </p>
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Display Filters</h1>
+      <p>
+         MoonRay provides a set of Display Filters which can serve as compositing nodes that can be piped from AOVs in Moonray along with other Display Filters, which allows progressive refinement in an artist's interactive render session. Useful for non-photoreal and compositing workflows.
+      </p>
+        <FullscreenImage 
+          src={Image.about_displayfilters1}
+          alt="Display filters"
+          caption="Display filters"
+          width="w-74"
+        />
+        <FullscreenImage 
+          src={Image.about_displayfilters2}
+          alt="Display filters"
+          caption="Display filters"
+          width="w-74"
+        />
+
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">XPU Mode</h1>
+      <p>
+        MoonRay's XPU mode is a pixel-matching, production capable GPU accelerated renderer. XPU mode achieves 100% output matching with non-GPU modes and incorporates a graceful fallback-to-CPU mechanism if the GPU has insufficient memory for the scene or other GPU error occurs. XPU treats the GPU like an additional co-processor, submitting work to it while load-balancing the work with the CPU cores.
+      </p>   
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Hydra Render Delegate</h1>
+      <p>
+        MoonRay comes with a Hydra Render Delegate that is compatible with any DCC tool with Hydra support, for interactive preview rendering. Upon finalization of the Hydra API specification, MoonRay will provide support for final frame batch rendering, and its Hydra Render Delegate will be the supported path to transform USD into MoonRay's internal RDL scene format.
+      </p>   
+    </div>
+
+     <div class="pb-6">
+      <h1 class="text-2xl pb-3">Layerable Materials</h1>
+      <p>
+        A full suite of DreamWorks' efficient, layerable production materials. These include canonical material types for common use cases such as metals, dielectrics, skin, fabric, hair and more. Additionally included is a flexible, general-purpose shader for more complex materials and adapting existing workflows. These materials can be combined using an arbitrary number of layers to represent significantly more complex material types. MoonRay's flexible material shading API allows for easy development of customized material shaders and supports many popular shading models.
+      </p>
+        <FullscreenImage 
+          src={Image.about_layerableminerals}
+          alt="A few example layered materials"
+          caption="A few example layered materials"
+          width="w-74"
+        /> 
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Checkpoint / Resume Rendering</h1>
+      <p>
+        MoonRay supports time, quality and signal based checkpoint rendering, to provide maximal control in many common scenarios. These options allow for stopping a render process deliberately in order to control rendering time and cost. MoonRay additionally supports resume of a checkpoint for either adding more samples into the previously rendered image if more samples are needed in order to reduce the noise level, or to recover from unintended job stoppage.
+      </p>
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Volume Rendering</h1>
+      <p>
+        MoonRay supports rendering of participating media such as fog, fire, smoke, clouds, and dust. Features include homogenous and heterogenous media, decoupled ray marching, equiangular sampling, importance sampled emission, art-directable multiple scattering, overlapping volumes, linear and frustum transforms, motion blur, anisotropic scattering, and OpenVDB file input and baking.
+      </p>
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Profiling Viewer</h1>
+      <p>
+        The standalone Profiling Viewer helps track render performance across a set of canonical tests over time. This tool provides a graphical overview of multiple render logs with flexible options for filtering the results, allowing developers to easily track changes in performance and pinpoint which stages of the render process are impacted.
+      </p>
+        <FullscreenImage 
+          src={Image.about_profileviewer}
+          alt="Profile Viewer"
+          caption="Profile Viewer"
+          width="w-74"
+        /> 
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Deep Images / Cryptomatte</h1>
+      <p>
+        MoonRay supports full deep image output, supporting both the standard .EXR deep format and the coverage-mask based OpenDCX extension. Deep image output is supported for both hard surfaces and volumes in the scene, enabling sophisticated compositing workflows. MoonRay also supports output of Cryptomatte files for generation of ID mattes.
+      </p>
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Light Filters</h1>
+      <p>
+        MoonRay supports a set of advanced light filters for full artistic expression, including Barn Door, Cookie (both isometric and projective modes), Gobo, Rod and more. Multiple light filters may be combined together with multiply, min, max, add, or subtract operations.
+      </p>
+      <table class="mx-auto">
+          <tr>
+              <td>
+                <FullscreenImage 
+                  src={Image.about_lightfilter1}
+                  alt="Cookie Light Filter (Orthographic)"
+                  caption="Cookie Light Filter (Orthographic)"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                <FullscreenImage 
+                  src={Image.about_lightfilter2}
+                  alt="Cookie Light Filter (Perspective)r"
+                  caption="Cookie Light Filter (Perspective)"
+                  width="w-74"
+                /> 
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <FullscreenImage 
+                  src={Image.about_lightfilter3}
+                  alt="Cookie Light Filter (Orthographic)"
+                  caption="Cookie Light Filter (Orthographic)"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                  <FullscreenImage 
+                    src={Image.about_lightfilter4}
+                    alt="Cookie Light Filter (Perspective)"
+                    caption="Cookie Light Filter (Perspective)"
+                    width="w-74"
+                  /> 
+              </td>
+          </tr>
+    </table>
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Adaptive and Uniform Sampling</h1>
+      <p>
+        MoonRay supports uniform and adaptive sampling. Adaptive sampling measures the error in the frame buffer to determine when to stop generating primary samples, taking an efficient non-local view of the frame buffer to eliminate artifacts.
+      </p>  
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Vectorization</h1>
+      <p>
+        MoonRay was designed from the beginning to fully leverage Single Instruction/Multiple Data (SIMD) vector units throughout. To achieve high SIMD efficiency, we employ Embree for tracing rays and vectorize the remaining compute-intensive components of the renderer: the integrator, the shading system and shaders, and the texturing engine. Queuing is used to help keep all vector lanes full and improve data coherency.
+      </p>  
+    </div>
+
+    <div class="pb-6">
+      <h1 class="text-2xl pb-3">Light Path Expressions / AOVs</h1>
+      <p>
+      All light path expression based AOVs are associated with radiance values. MoonRay supports basic outputs, which describe the differential geometry at the primary ray intersection point, as State AOVs. MoonRay also supports custom outputs such as HeatMap (time per pixel) and wireframe which is used for tessellation diagnostic purposes. Additionally, Material AOVs provide detailed diagnostics about the materials and are extremely helpful to surfacing and lighting artists when verifying material correctness and standards conformance. MoonRay's Material AOV syntax (intentionally similar to LPE syntax) complements light path expressions, which concern themselves with how a ray travels through the scene. Material AOV syntax focuses on extracting properties of a bsdf at an intersection.
+      </p>
+        <FullscreenImage 
+          src={Image.about_lightpath}
+          alt="A few example AOVs"
+          caption="A few example AOVs."
+          width="w-74"
+        />
+    </div>
+
+    <h1 class="text-2xl pb-3">MoonRay and Arras Contributors</h1>
+    <div class="max-w-5xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+
+      <!-- LEFT COLUMN -->
+      <div>
+        <h2 class="font-semibold text-lg mb-2">DreamWorks Animation</h2>
+        <ul class="list-disc list-inside space-y-1 text-gray-800">
+          <li>Ryan Amundson</li>
+          <li>Alan Blevins</li>
+          <li>Kevin Beason</li>
+          <li>Ron Bridger-Woods</li>
+          <li>Scott Cegielski</li>
+          <li>Harrison McKenzie Chapter</li>
+          <li>Xiling Chen</li>
+          <li>Mike Day</li>
+          <li>Ramiro Del Corro</li>
+          <li>Dustin Delmer</li>
+          <li>Priyamvad Deshmukh</li>
+          <li>David Doepp</li>
+          <li>Conrad Egan</li>
+          <li>Sebastian Fernandez</li>
+          <li>Barry Fowler</li>
+          <li>David Gardner</li>
+          <li>Alex Gerveshi</li>
+          <li>Brian Green</li>
+          <li>Joel Gross</li>
+          <li>Ningfeng Huang</li>
+          <li>Wei-Feng Huang</li>
+          <li>Keith Jeffery</li>
+          <li>Toshi Kato</li>
+          <li>Jerome Ko</li>
+          <li>Jon Lanz</li>
+          <li>Ashley Lee</li>
+          <li>Mark Lee</li>
+          <li>Matt Mackey</li>
+          <li>Jeffrey Mahovsky</li>
+          <li>Mark Matthews</li>
+          <li>Daniel McCann</li>
+          <li>Krishna Mullia</li>
+          <li>Marianna Neubauer</li>
+          <li>David Otte</li>
+          <li>Brian Pawlina</li>
+          <li>Paul Ramsey</li>
+          <li>Karl Rasche</li>
+          <li>Nate Reid</li>
+          <li>Evan Smyth</li>
+          <li>Andrea Solis</li>
+          <li>Bill Spitzak</li>
+          <li>Bret Stastny</li>
+          <li>Bob Somers</li>
+          <li>Eric Tabellion</li>
+          <li>Bruce Tartaglia</li>
+          <li>Anoop Thomas</li>
+          <li>Brian Walters</li>
+          <li>Trey White</li>
+          <li>Martin Watt</li>
+          <li>Rob Wilson</li>
+          <li>Feng Xie</li>
+          <li>Cheng-Jui Yu</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="space-y-10">
+
+        <div>
+          <h2 class="font-semibold text-lg mb-2">Comcast</h2>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Kevin Li</li>
+            <li>Vincent Santillo</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg mb-2">Intel</h2>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Louis Feng</li>
+            <li>Sheng Fu</li>
+            <li>Greg Junker</li>
+            <li>Matt Walsh</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg mb-2">Interns</h2>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Xiaoting Bi</li>
+            <li>Gizem Dal</li>
+            <li>Yuzhu Dong</li>
+            <li>Dennis van Ee</li>
+            <li>Rebecca Feng</li>
+            <li>Sarah Forcier</li>
+            <li>Shenyao Ke</li>
+            <li>Han-wei Kung</li>
+            <li>Matteo Mannino</li>
+            <li>Cindy Vu</li>
+            <li>Yuxiang Wang</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg mb-2">Allies</h2>
+          <ul class="list-disc list-inside space-y-1">
+            <li>William Ballew</li>
+            <li>Jeffrey Bradley</li>
+            <li>Sarah Cunnas</li>
+            <li>Paul DiLorenzo</li>
+            <li>Mitch Dobrowner</li>
+            <li>Ron Henderson</li>
+            <li>Mark Jackels</li>
+            <li>Robert Knaack</li>
+            <li>Frankie Liu</li>
+            <li>Matthew Low</li>
+            <li>John McStravik</li>
+            <li>Randy Packer</li>
+            <li>Andrew Pearce</li>
+            <li>Marie Scanlan</li>
+            <li>Matt Titus</li>
+            <li>Lincoln Wallen</li>
+            <li>Dave Walvoord</li>
+            <li>Jeffrey Wike</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</Layout>
+

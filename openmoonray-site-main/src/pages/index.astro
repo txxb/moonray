@@ -1,0 +1,252 @@
+---
+import Layout from '../components//Layout.astro';
+import FullscreenImage from '../components/FullscreenImage.astro';
+import NewsItem from '../components/NewsItem.astro';
+import * as Image from '../scripts/ImagePath'
+---
+
+<Layout>
+  <img src={Image.home_cover} class="w-full" />
+  <div class="p-10 m-5">
+    <h1 class="text-3xl font-bold pb-5">Welcome</h1>
+
+    <p>MoonRay is DreamWorks&apos; open-source,
+    <a href="https://research.dreamworks.com/wp-content/uploads/2019/10/2019-10-02-DreamWorks-Animation-Lumiere-Award-Moonray-Arras.pdf" class="text-blue-600">multi-award-winning</a>, state-of-the-art production MCRT renderer, which has been used on feature films such as How to Train Your Dragon: 
+    The Hidden World, The Bad Guys, Puss In Boots: The Last Wish, the newest release, Kung Fu Panda 4, as well as future titles. MoonRay was developed at DreamWorks and is in 
+    continuous active development and includes an extensive library of production-tested, physically based materials, a USD Hydra render delegate, multi-machine and cloud rendering 
+    via the Arras distributed computation framework.</p>
+    <FullscreenImage 
+      src={Image.home_paper}
+      alt="MoonRay"
+      caption="MoonRay"
+      width="w-74"
+    />
+
+    <p class="pb-5 italic">MoonRay is developed in-house and is maintained by <a href="https://www.dreamworks.com/" class="text-blue-600">DreamWorks Animation</a> for all of their feature film production. Many thanks go to all of the engineers for building and delivering 
+    this state of the art MCRT renderer since the very beginning, and to DreamWorks Animation for continuing a long tradition of contributing back to the wider computer graphics community.
+    </p>
+    <p class="pt-3 pb-5">We invite you to watch our Sizzle Reel!</p>
+
+<div class="relative aspect-video w-full max-w-3xl mx-auto">
+  <iframe
+    class="absolute inset-0 w-full h-full"
+    src="https://www.youtube.com/embed/86DW_M38rcE"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+
+    <h1 class="text-3xl font-bold pt-10">News &amp; Releases</h1>
+        <NewsItem
+          date="24-October-2025"
+          story="We participated in a fun hackathon at the Ubuntu Summit to make an initial <a href='https://snapcraft.io/openmoonray' class='text-blue-600'>Snap installer for MoonRay</a>. Put together short order, and successfully tested on Rocky9, Rocky10, two flavors of Ubuntu, along with Windows Subsystem for Linux. Nice effort from everyone coming together to contribute! Check out the presentation of our session."
+          youTubeVideoURL="https://www.youtube.com/embed/iW1r5jhXJlM?si=mnploXNul826KanZ"
+        />
+
+        <NewsItem
+          date="24-September-2025"
+          story="We had another great Birds of a Feather session hosted by the Academy Software Foundation at this year's Open Source Days / SIGGRAPH and we <a href='https://github.com/dreamworksanimation/openmoonray/discussions/214' class='text-blue-600'>posted this recap of what we shared</a>."
+        />
+<NewsItem
+  date="23-June-2025"
+  story={`We presented the journey of open-sourcing MoonRay at this year's <a href="https://ubuntu.com/blog/ubuntu-summit-2023-reflections" class='text-blue-600'>Open Source Summit North America</a>, hosted by The Linux Foundation. We invite you to see our path and experiences to open-source.`}
+  youTubeVideoURL="https://www.youtube.com/embed/eEbPbSvfhRI?si=QdB-dBnee1m5H0NX"
+/>
+
+<NewsItem
+  date="12-June-2025"
+story={`
+    <p>
+      MoonRay 2.15.0.1 is now available for 
+      <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/openmoonray-2.15.0.1" class="text-blue-600">download</a>.
+    </p>
+
+    <p>This is a major release:</p>
+
+    <ul class="list-disc list-inside pl-4">
+      <li>New developer <a href="https://github.com/dreamworksanimation/rats" class="text-blue-600">regression suite</a>. Includes release of ~400 tests and automated canonical image generation</li>
+      <li>Added NUMA architecture support. Includes affinity controls for CPU / Memory to achieve better performance on NUMA architecture machines</li>
+      <li>New <a href="https://docs.openmoonray.org/user-reference/tools/rdla_gui/" class='text-blue-600'>rdla_gui</a> program that creates a GUI from rdla objects and parameters and updates a delta .rdla file for real time control when rendering with moonray_gui</li>
+      <li>New per-BSDF lobe lightsets</li>
+      <li>New FOV attribute to the FisheyeCamera</li>
+      <li>New <a href="https://docs.openmoonray.org/user-reference/scene-objects/maps/TwoSidedMap/" class="text-blue-600">TwoSidedMap</a></li>
+      <li>Various other documentation updates, bug fixes and improvements</li>
+    </ul>
+
+    <p>
+      See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/187" class="text-blue-600">release notes</a> for a complete list of changes.
+    </p>
+`}
+
+/>
+
+<NewsItem
+  date="20-December-2024"
+  story={`MoonRay 1.7.0.0 is now available for <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/openmoonray-1.7.0.0" class="text-blue-600">download</a>.
+    <p>This is a minor release:</p>
+    <ul class="list-disc list-inside pl-4">
+      <li>Improved <a href="https://github.com/dreamworksanimation/openmoonray/blob/main/building/Rocky9/rocky9_build.md" class="text-blue-600">Rocky9</a> and <a href="https://github.com/dreamworksanimation/openmoonray/blob/main/building/macOS/macOS_build.md" class="text-blue-600">MacOS</a> build instructions and CMake presets for hdMoonray in Houdini</li>
+      <li>XPU mode now accelerates both regular rays and occlusion rays for NVIDIA GPUs</li>
+      <li>New <a href="https://docs.openmoonray.org/user-reference/scene-objects/lights/PortalLight/" class="text-blue-600">PortalLight</a></li>
+      <li>New support for <a href="https://docs.openmoonray.org/user-reference/how-to-guides/shadow-ray-manipulation/#min-shadow-distance" class="text-blue-600">min_shadow_distance</a></li>
+      <li>Adds Cryptomatte support to hdMoonRay</li>
+      <li>New shared memory framebuffer interface for sending framebuffer data between processes</li>
+      <li>Various other documentation updates, bug fixes and improvements</li>
+    </ul>
+    <p>See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/173" class="text-blue-600">release notes</a> for a complete list of changes.</p>`}
+/>
+
+<NewsItem
+  date="28-September-2024"
+  story={`It was another great Birds of a Feather session hosted by the Academy Software Foundation at this year's Open Source Days / SIGGRAPH and we <a href="https://github.com/dreamworksanimation/openmoonray/discussions/170" class="text-blue-600">posted this recap of what we shared</a>.`}
+/>
+
+<NewsItem
+  date="29-July-2024"
+  story={`MoonRay 1.6.0.0 is now available for <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/openmoonray-1.6.0.0" class="text-blue-600">download</a>.
+    <p>This is a minor release:</p>
+    <ul class="list-disc list-inside pl-4">
+      <li>New native MoonRay build for Apple silicon with Metal XPU support</li>
+      <li>Improved adaptive light sampling</li>
+      <li>New Fisheye camera</li>
+      <li>New <a href="https://docs.openmoonray.org/user-reference/tools/usd_mipmap_images/" class="text-blue-600">usd_mipmap_images</a> tool</li>
+      <li>Added inside-out projection for SphericalCamera</li>
+      <li>Various other documentation updates, bug fixes and improvements</li>
+    </ul>
+    <p>See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/158" class="text-blue-600">release notes</a> for a complete list of changes.</p>`}
+/>
+
+<NewsItem
+  date="22-February-2024"
+  story={`We presented an overview of Arras, MoonRay's distributed computational framework at this year's <a href="https://events.linuxfoundation.org/aswf-open-source-forum/" class="text-blue-600">Open Source Forum</a>, hosted by the <a href="https://www.aswf.io/" class="text-blue-600">Academy Software Foundation</a>. We invite you to check it out!`}
+  youTubeVideoURL="https://www.youtube.com/embed/aXmN_7pTVK8?si=OoZems9fXSCHQqpW"
+/>
+
+<NewsItem
+  date="20-February-2024"
+  story={`MoonRay 1.5.0.0 is now available for <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/openmoonray-1.5.0.0" class="text-blue-600">download</a>.
+    <p>This is a minor release:</p>
+    <ul class="list-disc list-inside pl-4">
+      <li>Upgraded to Embree 4.1</li>
+      <li>Upgraded to Optix 7.6</li>
+      <li>Added initial implementation of a new adaptive light sampling scheme</li>
+      <li>Added automatic CPU-affinity control</li>
+      <li>Implemented an improved acos() function</li>
+      <li>Several improvements to DwaToonMaterial</li>
+      <li>Various other documentation updates, bug fixes and improvements</li>
+    </ul>
+    <p>See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/138" class="text-blue-600">release notes</a> for a complete list of changes.</p>`}
+/>
+
+<NewsItem
+  date="1-December-2023"
+  story={`We added <a href="https://github.com/dreamworksanimation/openmoonray/discussions/134" class="text-blue-600">support for PresenZ VR</a> rendering to OpenMoonRay, and look forward to see what VR projects people can make with it!`}
+/>
+
+<NewsItem
+  date="3-November-2023"
+  story={`We presented the journey of open-sourcing MoonRay at this year's <a href="https://ubuntu.com/blog/ubuntu-summit-2023-reflections" class="text-blue-600">Ubuntu Summit</a>, hosted by Canonical. We invite you to see our path to open-source.`}
+  youTubeVideoURL="https://www.youtube.com/embed/MariNCKIXCs?si=lCEvZgGFMRWr3QNI"
+/>
+
+<NewsItem
+  date="02-November-2023"
+  story={`MoonRay 1.4.0.0 is now available for <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/openmoonray-1.4.0.0" class="text-blue-600">download</a>.
+    <p>This is a minor release:</p>
+    <ul class="list-disc list-inside pl-4">
+      <li>Added telemetry overlay functionality</li>
+      <li>Upgraded to Embree 4.1</li>
+      <li>Added GPU mode for denoising via OpenImageDenoise</li>
+      <li>XPU mode becomes the auto and default rendering modes</li>
+      <li>Further improvements to rdl2_print</li>
+      <li>Various other documentation updates, bug fixes and improvements</li>
+    </ul>
+    <p>See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/130" class="text-blue-600">release notes</a> for a complete list of changes.</p>`}
+/>
+
+<NewsItem
+  date="1-September-2023"
+  story={`We had a great Birds of a Feather session hosted by the Academy Software Foundation at this year's Open Source Days / SIGGRAPH and we <a href="https://github.com/dreamworksanimation/openmoonray/discussions/123" class="text-blue-600">posted this recap of what we shared</a>.`}
+/>
+
+<NewsItem
+  date="28-July-2023"
+  story={`MoonRay 1.3.0.0 is now available for <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/openmoonray-1.3.0.0" class="text-blue-600">download</a>.
+    <p>This is a minor release:</p>
+    <ul class="list-disc list-inside pl-4">
+      <li>Added support for Rocky Linux 9</li>
+      <li>Enable building with GCC 11</li>
+      <li>Upgraded to Embree 3.13.5</li>
+      <li>Upgraded to ISPC 1.20.0</li>
+      <li>Upgraded to CUDA 12.1</li>
+      <li>Several more package upgrades and build improvements</li>
+      <li>Added new extensions to Cryptomatte support</li>
+      <li>Various other documentation updates, bug fixes and improvements</li>
+    </ul>
+    <p>See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/113" class="text-blue-600">release notes</a> for a complete list of changes.</p>`}
+/>
+
+<NewsItem
+  date="22-June-2023"
+  story={`MoonRay 1.2.0.0 is now available for <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/v1.2.0.0" class="text-blue-600">download</a>.
+    <p>This is a minor release:</p>
+    <ul class="list-disc list-inside pl-4">
+      <li>Added <a href="https://docs.openmoonray.org/user-reference/how-to-guides/base-volume-ramp-controls/" class="text-blue-600">ramp controls</a> to BaseVolume</li>
+      <li>Added support for custom explicit shading attributes</li>
+      <li>Added support for image synchronization feedback for multi-machine rendering</li>
+      <li>Various other updates, fixes and improvements</li>
+    </ul>
+    <p>See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/107" class="text-blue-600">release notes</a> for a complete list of changes.</p>`}
+/>
+
+<NewsItem
+  date="18-May-2023"
+  story={`We're excited and honored that MoonRay was recognized with a <a href="https://infinityfestival.com/monolith-awards/" class="text-blue-600">2023 Monolith Award</a> from the <a href="https://infinityfestival.com/" class="text-blue-600">Infinity Festival Hollywood</a>!`}
+/>
+
+<NewsItem
+  date="1-May-2023"
+  story={`MoonRay 1.1.0.0 is now available for <a href="https://github.com/dreamworksanimation/openmoonray/releases/tag/v1.1.0.0" class="text-blue-600">download</a>.
+    <p>This is a minor release:</p>
+    <ul class="list-disc list-inside pl-4">
+      <li>Added new extensions to Cryptomatte support</li>
+      <li>Added support for normal-oriented curves</li>
+      <li>Various other updates, fixes and improvements</li>
+    </ul>
+    <p>See the <a href="https://github.com/dreamworksanimation/openmoonray/discussions/102" class="text-blue-600">release notes</a> for a complete list of changes.</p>`}
+/>
+
+<NewsItem
+  date="15-March-2023"
+  story={`MoonRay is available on its first release! Read the full press release <a href="MoonRay_Open_Source_Launch_Press_Release.pdf" class="text-blue-600">here</a>.`}
+  imageURL={Image.home_puss_in_boots}
+/>
+
+<NewsItem
+  date="16-February-2023"
+  story={`At the <a href="https://events.linuxfoundation.org/aswf-open-source-forum/" class="text-blue-600">Academy Software Foundation's Open Source Forum</a> we mentioned that we are very close to our full launch. In the meantime, we hope you enjoy diving into our <a href="https://docs.openmoonray.org" class="text-blue-600">MoonRay Documentation site</a>, which we've released today.
+    <p>We invite you to watch our new Sizzle Reel of MoonRay rendering Intel's newly released 4004 Moore Lane USD Scene, with CPU denoising using Intel's Open Image Denoiser, contributed and integrated into MoonRay.</p>`}
+  youTubeVideoURL="https://www.youtube.com/embed/51gFvyVvBjQ"
+/>
+
+<NewsItem
+  date="01-February-2023"
+  story={`We'll be presenting an update on open sourcing MoonRay at the Academy Software Foundation's Open Source Forum on February 16th. Exciting stuff to talk about! You can register <a href="https://events.linuxfoundation.org/aswf-open-source-forum/" class="text-blue-600">here</a> and also watch this space for updates.`}
+/>
+
+<NewsItem
+  date="03-January-2023"
+  story={`We sent out a mailer before the holiday break with the update that we're pushing the release to Q1 of 2023. While we've made great strides, trying to rush it out just before the holidays did not seem prudent.
+    <p>We look forward to sharing and collaborating on the technology with everyone very soon!</p>`}
+/>
+
+<NewsItem
+  date="05-August-2022"
+  story={`MoonRay will be open source later in 2022. Read the full press release <a href="MoonRayPressRelease.pdf" class="text-blue-600">here</a>.`}
+  imageURL={Image.home_cloud_guy}
+/>
+
+  </div>
+</Layout>
+

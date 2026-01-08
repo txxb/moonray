@@ -1,0 +1,207 @@
+---
+import Layout from '../components//Layout.astro';
+import FullscreenImage from '../components/FullscreenImage.astro';
+import * as Image from '../scripts/ImagePath'
+
+
+const slides = [
+  { title: "The Bad Guys 2", image: "https://txxb.github.io/static-site/images/documentation_movie1.png", description: "" },
+  { title: "The Bad Guys - Little Lies & Alibis", image: "https://txxb.github.io/static-site/images/documentation_movie2.png", description: "" },
+  { title: "Kung Fu Panda 4", image: "https://txxb.github.io/static-site/images/documentation_movie3.png", description: "" },
+  { title: "Trolls - Band Together", image: "https://txxb.github.io/static-site/images/documentation_movie4.png", description: "" },
+  { title: "Teenage Kraken", image: "https://txxb.github.io/static-site/images/documentation_movie5.png", description: "" },
+  { title: "Puss in Boots - The Last Wish", image: "https://txxb.github.io/static-site/images/documentation_movie6.png", description: "" },
+  { title: "The Bad Guys", image: "https://txxb.github.io/static-site/images/documentation_movie7.png", description: "" },
+  { title: "Trolls - Holiday in Harmony", image: "https://txxb.github.io/static-site/images/documentation_movie8.png", description: "" },
+  { title: "Boss Baby - Family Business", image: "https://txxb.github.io/static-site/images/documentation_movie9.png", description: "" },
+  { title: "To Gerard", image: "https://txxb.github.io/static-site/images/documentation_movie10.png", description: "" },
+  { title: "The Croods - A New Age", image: "https://txxb.github.io/static-site/images/documentation_movie11.png", description: "" },
+  { title: "Trolls - World Tour", image: "https://txxb.github.io/static-site/images/documentation_movie12.png", description: "" },
+  { title: "Abominable - Find Your Way Home", image: "https://txxb.github.io/static-site/images/documentation_movie13.png", description: "" },
+  { title: "Marooned", image: "https://txxb.github.io/static-site/images/documentation_movie14.png", description: "" },
+  { title: "How To Train Your Dragon - The Hidden World", image: "https://txxb.github.io/static-site/images/documentation_movie15.png", description: ""},
+  { title: "Bilby", image: "https://txxb.github.io/static-site/images/documentation_movie16.png", description: "" },
+  { title: "The Wild Robot", image: "https://txxb.github.io/static-site/images/documentation_movie17.png", description: "" },
+
+];
+---
+<head>
+  <title>Documentation - MoonRay</title>
+</head>
+
+
+<Layout>
+  <img src={Image.documentation_cover} class="w-full" />
+  <div class="p-10 m-5">
+  <h1 class="text-3xl font-bold pb-5">Documentation</h1>
+
+  <p class="pb-2">
+    You can find the documentation at <a href="https://docs.openmoonray.org/" class="text-blue-600 underline">MoonRay Documentation</a>
+  </p>
+
+  <p class="pb-5">
+    MoonRay has rendered the following DreamWorks Animation features and shorts...
+  </p>
+
+  <div class="pt-10 pb-10">
+            <table border=0 class="mx-auto">
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                <FullscreenImage 
+                  src={Image.documentation_movie1}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+                </td>
+            </tr>             
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie2}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie3}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie4}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie5}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie6}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie7}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie8}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie9}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie10}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie11}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie12}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie13}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie14}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie15}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+            <tr>
+              <td>
+                  <FullscreenImage 
+                  src={Image.documentation_movie16}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+              <td>
+                 <FullscreenImage 
+                  src={Image.documentation_movie17}
+                  alt="Profile Viewer"
+                  caption="Profile Viewer"
+                  width="w-74"
+                /> 
+              </td>
+            </tr>   
+          </table>
+  </div>
+  </div>
+</Layout>
+
