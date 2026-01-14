@@ -1,2 +1,2 @@
-export const home_open_source_press_release = "https://maabscorner.come/assets/MoonRay_Open_Source_Launch_Press_Release.pdf"
-export const home_inital_press_release = "https://maabscorner.come/assets/MoonRayPressRelease.pdf"
+export const home_open_source_press_release = "https://maabscorner.com/assets/MoonRay_Open_Source_Launch_Press_Release.pdf"
+export const home_inital_press_release = "https://maabscorner.com/assets/MoonRayPressRelease.pdf"
