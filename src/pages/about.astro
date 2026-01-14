@@ -16,7 +16,7 @@ import * as Image from '../scripts/ImagePath'
       src={Image.about_pathtracing}
       alt="Vectorized MoonRay Diagram"
       caption="Vectorized MoonRay"
-      width="w-74"
+      width="w-full"
     />
       <h1 class="text-2xl pb-3">Features</h1>
 
@@ -29,23 +29,31 @@ import * as Image from '../scripts/ImagePath'
 
     <div class="pb-6">
       <h1 class="text-2xl pb-3">Display Filters</h1>
+
       <p>
-         MoonRay provides a set of Display Filters which can serve as compositing nodes that can be piped from AOVs in Moonray along with other Display Filters, which allows progressive refinement in an artist's interactive render session. Useful for non-photoreal and compositing workflows.
+        MoonRay provides a set of Display Filters which can serve as compositing nodes
+        that can be piped from AOVs in Moonray along with other Display Filters, which
+        allows progressive refinement in an artist's interactive render session. Useful
+        for non-photoreal and compositing workflows.
       </p>
+
+      <div class="flex flex-col md:flex-row">
         <FullscreenImage 
           src={Image.about_displayfilters1}
           alt="Display filters"
           caption="Display filters"
-          width="w-74"
+          width="w-full"
         />
+
         <FullscreenImage 
           src={Image.about_displayfilters2}
           alt="Display filters"
           caption="Display filters"
-          width="w-74"
+          width="w-full"
         />
-
+      </div>
     </div>
+
 
     <div class="pb-6">
       <h1 class="text-2xl pb-3">XPU Mode</h1>
@@ -113,44 +121,36 @@ import * as Image from '../scripts/ImagePath'
       <p>
         MoonRay supports a set of advanced light filters for full artistic expression, including Barn Door, Cookie (both isometric and projective modes), Gobo, Rod and more. Multiple light filters may be combined together with multiply, min, max, add, or subtract operations.
       </p>
-      <table class="mx-auto">
-          <tr>
-              <td>
-                <FullscreenImage 
-                  src={Image.about_lightfilter1}
-                  alt="Cookie Light Filter (Orthographic)"
-                  caption="Cookie Light Filter (Orthographic)"
-                  width="w-74"
-                /> 
-              </td>
-              <td>
-                <FullscreenImage 
-                  src={Image.about_lightfilter2}
-                  alt="Cookie Light Filter (Perspective)r"
-                  caption="Cookie Light Filter (Perspective)"
-                  width="w-74"
-                /> 
-              </td>
-          </tr>
-          <tr>
-              <td>
-                <FullscreenImage 
-                  src={Image.about_lightfilter3}
-                  alt="Cookie Light Filter (Orthographic)"
-                  caption="Cookie Light Filter (Orthographic)"
-                  width="w-74"
-                /> 
-              </td>
-              <td>
-                  <FullscreenImage 
-                    src={Image.about_lightfilter4}
-                    alt="Cookie Light Filter (Perspective)"
-                    caption="Cookie Light Filter (Perspective)"
-                    width="w-74"
-                  /> 
-              </td>
-          </tr>
-    </table>
+<table class="mx-auto border-collapse">
+  <tr>
+    <td class="p-2">
+      <div class="aspect-w-16 aspect-h-9 w-64">
+        <FullscreenImage src={Image.about_lightfilter1} alt="Cookie Light Filter (Orthographic)" />
+      </div>
+    </td>
+
+    <td class="p-2">
+      <div class="aspect-w-16 aspect-h-9 w-64">
+        <FullscreenImage src={Image.about_lightfilter2} alt="Cookie Light Filter (Perspective)" />
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="p-2">
+      <div class="aspect-w-16 aspect-h-9 w-64">
+        <FullscreenImage src={Image.about_lightfilter3} alt="Cookie Light Filter (Orthographic)" />
+      </div>
+    </td>
+
+    <td class="p-2">
+      <div class="aspect-w-16 aspect-h-9 w-64">
+        <FullscreenImage src={Image.about_lightfilter4} alt="Cookie Light Filter (Perspective)" />
+      </div>
+    </td>
+  </tr>
+</table>
+
     </div>
 
     <div class="pb-6">
