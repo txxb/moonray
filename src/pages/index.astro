@@ -3,6 +3,7 @@ import Layout from '../components//Layout.astro';
 import FullscreenImage from '../components/FullscreenImage.astro';
 import NewsItem from '../components/NewsItem.astro';
 import * as Image from '../scripts/ImagePath'
+import * as Asset from '../scripts/AssetsPath'
 ---
 
 <Layout>
@@ -219,7 +220,7 @@ story={`
 
 <NewsItem
   date="15-March-2023"
-  story={`MoonRay is available on its first release! Read the full press release <a href="MoonRay_Open_Source_Launch_Press_Release.pdf" class="text-blue-600">here</a>.`}
+  story={`MoonRay is available on its first release! Read the full press release <a href="${Asset.home_open_source_press_release}" class="text-blue-600">here</a>.`}
   imageURL={Image.home_puss_in_boots}
 />
 
@@ -243,7 +244,7 @@ story={`
 
 <NewsItem
   date="05-August-2022"
-  story={`MoonRay will be open source later in 2022. Read the full press release <a href="MoonRayPressRelease.pdf" class="text-blue-600">here</a>.`}
+  story={`MoonRay will be open source later in 2022. Read the full press release <a href="${Asset.home_inital_press_release}" class="text-blue-600">here</a>.`}
   imageURL={Image.home_cloud_guy}
 />
 

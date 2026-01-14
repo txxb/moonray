@@ -85,5 +85,10 @@
     </div>
   </div>
 
-<div class="hidden md:block pt-14 md:pt-0"> <aside id="sidebar" class="bg-white w-80 h-screen"> <main class="flex-1 px-6 md:px-12"> <slot /> </main> </aside> </div> 
+    <!-- Desktop Header -->
+    <div class="hidden md:block"> 
+      <aside id="sidebar" class="bg-white w-80 h-screen fixed overflow-y-auto">  
+        <main class="flex-1 px-6 md:px-12"> <slot /></main> 
+      </aside> 
+</div> 
 </body>
