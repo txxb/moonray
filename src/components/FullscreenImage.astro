@@ -1,5 +1,5 @@
 ---
-const { src, alt, caption, width } = Astro.props;
+const { src, alt, caption, width="w-80", height="h-80" } = Astro.props;
 ---
 <script type="module">
   document.querySelectorAll('.fullscreen-trigger').forEach((img) => {
@@ -30,8 +30,21 @@ const { src, alt, caption, width } = Astro.props;
   });
 </script>
 
- <div class="fullscreen-wrapper">
-   <div class="flex justify-center p-6">
-     <div class="group text-center"> 
-      <img src={src} alt={alt} class={`fullscreen-trigger ${width} h-64 object-cover rounded-lg cursor-pointer transition-transform transform hover:scale-105`} /> 
-    </div> </div> <div class="fullscreen-overlay fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center hidden z-30"> <div class="relative w-full h-full flex flex-col justify-center items-center"> <img class="fullscreen-image max-h-full max-w-full object-contain" alt="Fullscreen Image"> <p class="fullscreen-caption text-white text-center mt-4"></p> <button class="fullscreen-close absolute top-4 right-4 text-white text-3xl font-bold">&#88;</button> </div> </div> </div>
+<div class="fullscreen-wrapper">
+  <div class="flex justify-center p-2">
+    <div class="group text-center"> 
+      <img height="300px" src={src} alt={alt}
+        class={`fullscreen-trigger ${width} ${height} object-contain rounded-lg cursor-pointer transition-transform transform hover:scale-105`} />
+    </div>
+  </div>
+  <div class="fullscreen-overlay fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center hidden z-30">
+    <button class="fullscreen-close absolute top-4 right-4 text-white text-4xl font-bold z-40">
+      &#88;
+    </button>
+
+    <div class="relative w-2/3 h-2/3 flex flex-col justify-center items-center">
+      <img class="fullscreen-image max-h-full max-w-full object-contain" alt="Fullscreen Image">
+      <p class="fullscreen-caption text-white text-center mt-4"></p>
+    </div>
+  </div>
+</div>
