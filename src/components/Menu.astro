@@ -71,26 +71,30 @@ import * as Image from '../scripts/ImagePath'
 
 <body class="bg-white text-gray-800 pt-20">
   <!-- Mobile Header -->
-  <div
-    id="toggle-button"
-    class="md:hidden bg-white px-4 py-3 fixed top-0 left-0 w-full z-50"
-  >
-    <div class="tham tham-e-squeeze tham-w-6 ml-auto">
-      <div class="tham-box">
-        <div class="tham-inner"></div>
-      </div>
-    </div> 
-
-    <img
-      src={Image.moonray_logo}
-      alt="Icon"
-      class="h-24"
-    />
-
-    <div id="mobilemenu" class="hidden mt-8 outline outline-3 outline-dreamworks-blue">
+<div
+  id="toggle-button"
+  class="md:hidden bg-white px-4 py-1 fixed top-0 left-0 w-full flex items-center z-50"
+>
+  <div class="tham tham-e-squeeze tham-w-10">
+    <div class="tham-box">
+      <div class="tham-inner"></div>
     </div>
-
   </div>
+
+  <img
+    src={Image.moonray_logo}
+    alt="Icon"
+    class="h-16 object-contain mx-auto"
+  />
+  <div class="md:hidden top-16 mt-2 fixed left-0 w-full h-1 bg-black"></div>
+
+</div>
+
+
+<div
+  id="mobilemenu"
+  class="hidden fixed top-16 mt-3 left-0 w-full bg-white z-50 outline outline-3 outline-dreamworks-blue"
+></div>
 
     <!-- Desktop Header -->
     <div class="hidden md:block"> 
