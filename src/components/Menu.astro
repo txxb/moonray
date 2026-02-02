@@ -2,35 +2,31 @@
 import * as Image from '../scripts/ImagePath'
 ---
 <head>
-  <script type="module">
-    // Define the menu items
-    const menuItems = [
-      { name: 'Home', link: '/' },
-      { name: 'About', link: '/about' },
-      { name: 'FAQ', link: '/faq' },
-      { name: 'Documentation', link: '/documentation' },
-      { name: 'License', link: '/license' },
-      { name: 'Download', link: '/download' },
-    ];
+<script type="module">
+  // Define the menu items
+  const menuItems = [
+    { name: 'Home', link: '/' },
+    { name: 'About', link: '/about' },
+    { name: 'FAQ', link: '/faq' },
+    { name: 'Documentation', link: '/documentation' },
+    { name: 'License', link: '/license' },
+    { name: 'Download', link: '/download' },
+  ];
 
-    // Get the current URL path
-    const currentPath = window.location.pathname;
+  const currentPath = window.location.pathname;
 
-    // Function to determine the class for each menu item
-    function getMenuClass(link) {
-      return currentPath === link
-        ? 'block px-4 py-2 rounded-lg bg-dreamworks-blue text-white'  // Active menu item
-        : 'block px-4 py-2 rounded-lg hover:bg-gray-100 hover:text-dreamworks-blue';  // Inactive menu item
-    }
+  function getMenuClass(link) {
+    return currentPath === link
+      ? 'block px-4 py-2 rounded-lg bg-dreamworks-blue text-white'
+      : 'block px-4 py-2 rounded-lg hover:bg-gray-100 hover:text-dreamworks-blue';
+  }
 
-    // Wait for DOM content to load
-    document.addEventListener('DOMContentLoaded', () => {
-      // Get the sidebar menu
-      const sidebar = document.getElementById('sidebar');
-      const mobileMenu = document.getElementById('mobilemenu');
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar');
+    const mobileMenu = document.getElementById('mobilemenu');
 
-      // Loop through the menuItems array and create list items dynamically
-      const menuList = menuItems.map(item => {
+    const menuList = menuItems
+      .map(item => {
         return `
           <li>
             <a href="${item.link}" class="${getMenuClass(item.link)}">
@@ -38,10 +34,10 @@ import * as Image from '../scripts/ImagePath'
             </a>
           </li>
         `;
-      }).join('');
+      })
+      .join('');
 
-      // Insert the menu items into the sidebar
-      sidebar.innerHTML = ` 
+    sidebar.innerHTML = ` 
       <ul class="space-y-4"> 
         <li> <img src="https://maabscorner.com/images/moonray_logo.png" alt="Icon" class="mb-10 h-52 w-auto" /> 
         </li> 
@@ -50,23 +46,49 @@ import * as Image from '../scripts/ImagePath'
       <div class="mt-10 pb-8 text-left"> 
       <div class="border-b border-gray-300 pb-1 mb-3 font-semibold"> Contacts </div> 
       <a href="mailto:MoonRay@dreamworks.com" class="text-blue-600 underline"> MoonRay@dreamworks.com </a> 
-      </div> `
+      </div> `;
 
+    mobileMenu.innerHTML = `
+      <ul class="space-y-4 p-5">
+        ${menuList}
+      </ul>
+      <div class="ml-auto text-right p-3"> 
+        <span class="font-semibold">Contacts:</span> 
+        <a href="mailto:MoonRay@dreamworks.com" class="text-blue-600 underline"> MoonRay@dreamworks.com </a> 
+      </div>
+    `;
 
-      mobileMenu.innerHTML = `
-        <ul class="space-y-4 p-5">
-          ${menuList}
-        </ul>
-        <div class="ml-auto text-right p-3"> <span class="font-semibold">Contacts:</span> <a href="mailto:MoonRay@dreamworks.com" class="text-blue-600 underline"> MoonRay@dreamworks.com </a> </div>
-      `;
     const tham = document.querySelector(".tham");
     tham.addEventListener('click', () => {
-    tham.classList.toggle('tham-active');
-    mobileMenu.classList.toggle('hidden');
-});
-
+      tham.classList.toggle('tham-active');
+      mobileMenu.classList.toggle('hidden');
     });
-  </script>
+
+
+    const logo = document.querySelector("#toggle-button img");
+    logo.classList.add("transition-all", "duration-300");
+    const logoUnderline = document.querySelector("#toggle-button #underline");
+    logoUnderline.classList.add("transition-all", "duration-300");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        logo.classList.remove("h-24");
+        logo.classList.add("h-16");
+        logoUnderline.classList.remove("top-24")
+        logoUnderline.classList.add("top-16")
+        mobileMenu.classList.remove("top-24")
+        mobileMenu.classList.add("top-16")
+
+      } else {
+        logo.classList.remove("h-16");
+        logo.classList.add("h-24");
+        logoUnderline.classList.remove("top-16")
+        logoUnderline.classList.add("top-24")
+        mobileMenu.classList.remove("top-16")
+        mobileMenu.classList.add("top-24")
+      }
+    });
+  });
+</script>
 </head>
 
 <body class="bg-white text-gray-800 pt-20">
@@ -84,16 +106,16 @@ import * as Image from '../scripts/ImagePath'
   <img
     src={Image.moonray_logo}
     alt="Icon"
-    class="h-16 object-contain mx-auto"
+    class="h-24 object-contain mx-auto"
   />
-  <div class="md:hidden top-16 mt-2 fixed left-0 w-full h-1 bg-black"></div>
+  <div id=underline class="md:hidden top-24 mt-2 fixed left-0 w-full h-1 bg-black"></div>
 
 </div>
 
 
 <div
   id="mobilemenu"
-  class="hidden fixed top-16 mt-3 left-0 w-full bg-white z-50 outline outline-3 outline-dreamworks-blue"
+  class="hidden fixed top-24 mt-3 left-0 w-full bg-white z-50 outline outline-3 outline-dreamworks-blue"
 ></div>
 
     <!-- Desktop Header -->
